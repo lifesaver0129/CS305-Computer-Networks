@@ -23,7 +23,7 @@ Personal repo for SUSTech course CS305 Computer Networks
     - Client to client is a plus
     - GUI is a plus
 * Lab11:
-    - Achieve djikstra algorithm
+    - Achieve dijkstra algorithm
 
 ## Project : Network Measurement and Analysis
 In this project, you are required to use all kinds of tracing tools to measure the network performance of our network in campus. You are required to measure both the wireless network and wired network.
