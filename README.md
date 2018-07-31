@@ -22,8 +22,6 @@ Personal repo for SUSTech course CS305 Computer Networks
     - The message and sender can be recognized inreal time
     - Client to client is a plus
     - GUI is a plus
-* Grading for Lab05:
-    ![](lab05/grading.gif)
 * Lab11:
     - Achieve djikstra algorithm
 
