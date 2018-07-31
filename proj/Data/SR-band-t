@@ -1,0 +1,20 @@
+
+Iperf thread stopped [CAUSE=Bad file descriptor]
+iperf -s -P 0 -i 1 -p 5001 -V -f k
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+[  4] local ::ffff:10.21.116.236 port 5001 connected with ::ffff:10.21.75.206 port 63931
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  11318 KBytes  92715 Kbits/sec
+[  4]  1.0- 2.0 sec  11616 KBytes  95158 Kbits/sec
+[  4]  2.0- 3.0 sec  12616 KBytes  103350 Kbits/sec
+[  4]  3.0- 4.0 sec  12458 KBytes  102058 Kbits/sec
+[  4]  4.0- 5.0 sec  12888 KBytes  105578 Kbits/sec
+[  4]  5.0- 6.0 sec  12832 KBytes  105120 Kbits/sec
+[  4]  6.0- 7.0 sec  12360 KBytes  101253 Kbits/sec
+[  4]  7.0- 8.0 sec  12312 KBytes  100860 Kbits/sec
+[  4]  8.0- 9.0 sec  12343 KBytes  101115 Kbits/sec
+[  4]  9.0-10.0 sec  12535 KBytes  102683 Kbits/sec
+[  4]  0.0-10.0 sec  123304 KBytes  100996 Kbits/sec

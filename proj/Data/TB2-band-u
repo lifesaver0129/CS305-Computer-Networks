@@ -1,0 +1,20 @@
+
+Iperf thread stopped [CAUSE=Bad file descriptor]
+iperf -s -u -P 0 -i 1 -p 5001 -V -f k
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  192 KByte (default)
+------------------------------------------------------------
+[  3] local ::ffff:10.21.116.236 port 5001 connected with ::ffff:10.21.75.206 port 55706
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 1.0 sec   128 KBytes  1047 Kbits/sec   3.147 ms    0/   89 (0%)
+[  3]  1.0- 2.0 sec   121 KBytes   988 Kbits/sec   4.175 ms    0/   84 (0%)
+[  3]  2.0- 3.0 sec   123 KBytes  1011 Kbits/sec   3.796 ms    0/   86 (0%)
+[  3]  3.0- 4.0 sec   121 KBytes   988 Kbits/sec   4.342 ms    0/   84 (0%)
+[  3]  4.0- 5.0 sec   123 KBytes  1011 Kbits/sec   4.029 ms    0/   86 (0%)
+[  3]  5.0- 6.0 sec   121 KBytes   988 Kbits/sec   3.306 ms    0/   84 (0%)
+[  3]  6.0- 7.0 sec   122 KBytes  1000 Kbits/sec   4.486 ms    0/   85 (0%)
+[  3]  7.0- 8.0 sec   123 KBytes  1011 Kbits/sec   3.841 ms    0/   86 (0%)
+[  3]  8.0- 9.0 sec   122 KBytes  1000 Kbits/sec   4.322 ms    0/   85 (0%)
+[  3]  0.0-10.0 sec  1223 KBytes  1004 Kbits/sec   4.350 ms    0/  852 (0%)

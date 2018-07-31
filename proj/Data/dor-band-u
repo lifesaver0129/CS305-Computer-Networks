@@ -1,0 +1,23 @@
+iperf -s -P 0 -i 1 -p 5001 -f k
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+
+Iperf thread stopped [CAUSE=Bad file descriptor]
+iperf -s -u -P 0 -i 1 -p 5001 -f k
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  192 KByte (default)
+------------------------------------------------------------
+[  3] local 10.21.116.236 port 5001 connected with 10.21.75.206 port 53614
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 1.0 sec   129 KBytes  1058 Kbits/sec   1.007 ms    0/   90 (0%)
+[  3]  1.0- 2.0 sec   128 KBytes  1047 Kbits/sec   3.073 ms    0/   89 (0%)
+[  3]  2.0- 3.0 sec   122 KBytes  1000 Kbits/sec   1.195 ms    0/   85 (0%)
+[  3]  3.0- 4.0 sec   122 KBytes  1000 Kbits/sec   1.084 ms    0/   85 (0%)
+[  3]  4.0- 5.0 sec   122 KBytes  1000 Kbits/sec   0.943 ms    0/   85 (0%)
+[  3]  5.0- 6.0 sec   122 KBytes  1000 Kbits/sec   1.791 ms    0/   85 (0%)
+[  3]  6.0- 7.0 sec   122 KBytes  1000 Kbits/sec   1.293 ms    0/   85 (0%)
+[  3]  7.0- 8.0 sec   122 KBytes  1000 Kbits/sec   1.105 ms    0/   85 (0%)

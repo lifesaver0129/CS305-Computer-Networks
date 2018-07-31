@@ -1,0 +1,60 @@
+\begin{thebibliography}{10}
+
+\bibitem{cn1}
+Peter~V Marsden.
+\newblock Recent developments in network measurement.
+\newblock {\em Models and methods in social network analysis}, 8:30, 2005.
+
+\bibitem{cn2}
+Mark Stemm, Randy Katz, and Srinivasan Seshan.
+\newblock A network measurement architecture for adaptive applications.
+\newblock In {\em INFOCOM 2000. Nineteenth Annual Joint Conference of the IEEE
+  Computer and Communications Societies. Proceedings. IEEE}, volume~1, pages
+  285--294. IEEE, 2000.
+
+\bibitem{cn3}
+Boris Yanovsky.
+\newblock System and method for network virus protection, March~7 2006.
+\newblock US Patent 7,010,807.
+
+\bibitem{cn4}
+Peter~J Denning.
+\newblock Acm president's letter: electronic junk.
+\newblock {\em Communications of the ACM}, 25(3):163--165, 1982.
+
+\bibitem{cn5}
+William Stallings and Mohit~P Tahiliani.
+\newblock {\em Cryptography and network security: principles and practice},
+  volume~6.
+\newblock Pearson London, 2014.
+
+\bibitem{cn8}
+Harsh Taneja and Angela~Xiao Wu.
+\newblock Does the great firewall really isolate the chinese? integrating
+  access blockage with cultural factors to explain web user behavior.
+\newblock {\em The Information Society}, 30(5):297--309, 2014.
+
+\bibitem{cn6}
+Sangheon Pack and Yanghee Choi.
+\newblock Pre-authenticated fast handoff in a public wireless lan based on ieee
+  802.1 x model.
+\newblock In {\em Mobile and Wireless Communications}, pages 175--182.
+  Springer, 2003.
+
+\bibitem{cn9}
+Ben Elgin and Bruce Einhorn.
+\newblock The great firewall of china.
+\newblock {\em Business Week}, 12, 2006.
+
+\bibitem{cn10}
+John Border, Douglas Dillon, and Matt Butehorn.
+\newblock System and method of reading ahead of objects for delivery to an http
+  proxy server, September~21 2004.
+\newblock US Patent 6,795,848.
+
+\bibitem{cn7}
+Philipp Winter and Stefan Lindskog.
+\newblock How the great firewall of china is blocking tor.
+\newblock In {\em FOCI}, 2012.
+
+\end{thebibliography}

@@ -1,0 +1,441 @@
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} 
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage[english]{babel} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{lipsum} 
+\usepackage{sectsty} 
+\allsectionsfont{\centering \normalfont\scshape} 
+\usepackage{graphicx}
+\usepackage{fancyhdr} 
+\pagestyle{fancyplain}
+\fancyhead{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}  
+\fancyfoot[R]{\thepage} 
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+\setlength{\headheight}{13.6pt} 
+\numberwithin{equation}{section} 
+\numberwithin{figure}{section} 
+\numberwithin{table}{section} 
+\setlength\parindent{0pt} 
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 
+\title{	
+\normalfont \normalsize 
+\textsc{Southern University of Science and Technology} \\ [25pt] 
+\horrule{0.5pt} \\[0.4cm] 
+\huge Network Measurement and Analysis \\ 
+\horrule{2pt} \\[0.5cm] 
+}
+\author{Yuxing Hu 11510225 \\
+Xiaodong Mao 11510194 \\
+Mengting Xu 11510243 \\
+Jingyi Liu 11510122}
+\date{\normalsize\today}
+\begin{document}
+\maketitle 
+\newpage
+\tableofcontents
+\newpage
+\section{Preliminaries}
+\subsection{Introduction}
+As students major in computer science, internet has bond with our daily life, no matter we are studying, communicating, even when we try to relax ourselves, we can not live without internet. Except some extreme circumstance, the majority of our networking time in under the campus network system. And according to our research, over 90\% of internet access request are via wireless connection. So most of our students accessing the internet via Wifi connection. Based on that, the major of our project is going to focus on the wireless part. 
+\paragraph{}
+Our project also investigate the wired connection in many different location. There testing on campus internet website access is thought many different aspect. Testing focus on different fields and will be analyze both on the large scale and also in the detail. Also, after analyze the data we have, we handed out the problem we found in our campus network. The approach of the problem solve is also listed in the report. Besides, lots of our work is being communicated with the network manager of our school, so the solution is very inspiring and executable.
+\paragraph{}
+Besides the normal campus network measurement and analysis, we also have a great improvement in the exploration of the great firewall of China. Owing to the reason known to all, this wall has always be a sensitive problem to public. In our report, we will analyze the principle of how the firewall work, and with our primary approach, we listed several ways to get rid of it.
+\subsection{Division of Labor}
+\begin{itemize}
+\item Yuxing Hu: 
+\par In charge of the wireless part, including creating testing plan, testing the data and minority of potential problem present and solving plan of campus' wireless network.
+\item Xiaodong Mao: 
+\par Assisting testing the wireless network's data, done the majority presentation of problem rise and also support the possible solutions of these problem.
+\item Mengting Xu: 
+\par Analyzation of wired network of school campus network, with testing plan and solution to the current of structure.
+\item Jingyi Liu: 
+\par Giving the brief description of great firewall of China's internet, and also prepare some basic implementation of get through it.
+\end{itemize}
+\section{Wireless Network of Campus}
+\subsection{Description}
+The wireless part of school campus is a little bit easier to measure comparing to wired network. Because of the using of Wifi is pretty popularized in our society and is pretty widely used in the whole campus. So the main point of our problem becomes to what to measure and how to do that. 
+\paragraph{}
+We discussed about several situations and figured out about serval aspects to evaluate some important and basic metrics of our school network. And also, we sum up some commonly problem about our campus' wireless network, by analyzing them we figured out potential solution to solve the majority part of these problems.
+\subsection{Approach Method}
+After elaborate discussion and draw the lessons from foreign conference articles \cite{cn1} \cite{cn2} and comparing the definition of Wikipedia, we summing up the following five rules to show the detail of the network ability. The measuring target including:
+\begin{itemize}
+\item Availability: indicate whether the website can be reach in or not.
+\item Response Time: indicate the speed of a complete network loop, the detail indicator including network latency, connection time and round trip time. Also need to show out the detail of packet loss, resubmission rates and resubmission delay.
+\item Network Throughput: the throughout of the whole internet, indicate the amount of data transfer through the network. With it we can also measure the data transfer time.
+\item Network Utilization: this part is basically server processing time and server response time.
+\item Network Bandwidth Capacity: as the name shown, this indicator indicate the bandwidth of the network amount.
+\end{itemize}
+\subsection{Ways of Collecting Data}
+We use multiple ways to collecting these data which seems unreachable, including the terminal tools and some professional softwares. These functions vary very different from each other and together they made a fairy fair aspect of all five aspect in the above section.
+\subsubsection{Network availabilty}
+To check whether the network is availability, we use ping tool in the terminal and by this we can get the information of whether can we get to the website. At every place we went, we did the ping action three time in order to get the accurate data. These websites are www.baidu.com, which represent a local website which should be access very quickly; www.berkeley.com, which located in the oversea server station, and not blocked, which means it will be connected but requiring a little bit long time; and finally, www.youtube.com, which is a blocked website and in many connection tunnel it will be blocked. The screenshot is shown as Figure \ref{fig1}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{pic1.png}
+\caption{PING tool}
+\label{fig1}
+\end{figure}
+\subsubsection{Response time}
+After that, we use another terminal tool called httpstat, and by using this tool we can check the time of DNS lookup, TCP connection, server processing, content transfer and round-trip. The statistics is presented in a vary fancy way and just like the ping tool, we tested same three website to get the more detail data. The screenshot is shown as Figure \ref{fig2}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{pic2.png}
+\caption{STATHTTP tool}
+\label{fig2}
+\end{figure}
+\subsubsection{Package loss}
+The package loss is another important indicator to measure the network stability. For this method, we find a tool called mtr. And this tool can measure all the host from a specfic website and get the average lost percentage of packets. The data is updated every second, and we also done this in three different website as before. The screenshot is shown as Figure \ref{fig3}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{pic3.png}
+\caption{mtr tool}
+\label{fig3}
+\end{figure}
+\subsubsection{Package capture}
+We also capture some package on every website and in every place. Without using Wireshark, we try a new capture software called fiddler. With this tool, we get all the packet information and every jump from each other site. With this tool we can also see the detail of some performance data. The screenshot is shown as Figure \ref{fig4}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.3]{pic4.png}
+\caption{Packet capture}
+\label{fig4}
+\end{figure}
+\subsubsection{Network throughput}
+About the network throughput testing, we use the netperf tool which can track the transfer rate and amount in a user set commend and then return the testing record into the terminal chart. The result including TCP network throughput, UDP network throughput, TCP transaction rate and UDP transaction rate. The screenshot is shown as Figure \ref{fig5}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{pic5.png}
+\caption{Network Throughput}
+\label{fig5}
+\end{figure}
+\subsubsection{Speedtest}
+Of course, data transfer time is a great deal in network measurement. We use OOKLA to recording the download and upload speed of our current wireless network. To get the average rate and for data accuracy, we test three time in each area. The screenshot is shown as Figure \ref{fig6}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{pic6.png}
+\caption{Speed test}
+\label{fig6}
+\end{figure}
+\subsubsection{Network utilization}
+Network utilization is a very difficult part during our testing. Because we are not able to reach the data of server processing time and server response time. The only way turns out to call to school IT center and in that way maybe we will have the realtime data of our campus. However, with our huge effort, we get a map of school's network deployment graph. The graph is shown as Figure \ref{fig7}. It shows the default settings of the school's network and showed the detail of campus.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{pic7.png}
+\caption{Network utilization}
+\label{fig7}
+\end{figure}
+\subsubsection{Signal strength}
+We also caption the signal strength in every part of campus, and turns out this is hugely effected by the router placement. We use the NetSpot to check the signal strength and it also display every router's address, frequency band, noise data and security protocol. The screenshot is shown as Figure \ref{fig8}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.3]{pic8.png}
+\caption{Signal strength}
+\label{fig8}
+\end{figure}
+\paragraph{}
+We didn't stop there. We have some additional testing plan on the strength of signal. These including the graph of noise and signal, tabular data, and the channel range of each router displays in both 2.4GHz and 5GHz. The screenshot is shown as Figure \ref{fig81}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.25]{pic80.png}
+\includegraphics[scale=0.25]{pic81.png}
+\includegraphics[scale=0.25]{pic82.png}
+\includegraphics[scale=0.25]{pic83.png}
+\caption{Additional feature of signal}
+\label{fig81}
+\end{figure}
+\subsubsection{Bandwidth capacit}
+Last but not least, we test the bandwidth capacity of the network. We use data transfer between client and server, and get the information of bandwidth and jitter in both TCP way and UDP way to get the raw data and figures display in graph. The software we used is Iperf with Jperf to add the graph enforcing. The screenshot is shown as Figure \ref{fig9}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.3]{pic9.png}
+\caption{Bandwidth capacity}
+\label{fig9}
+\end{figure}
+\subsection{Places of Collecting Data}
+We went to several places to testing the data in order to get a whole data of school campus. These places including:
+\begin{itemize}
+\item Teaching building 1 / Teaching building 2 Lynn Library
+\item Lakeside canteen
+\item Shu Ren playing room
+\item Lakeside dormitory and Litchi dormitory
+\item Playground / Gate 1 / Tennis ground in Xin Yuan's road
+\end{itemize}
+\subsection{Data Analysis}
+Some area has no signal at all, so no measurement needs to do here. These places including Lakeside canteen, Playground Gate 1 and Tennis ground in Xin Yuan's road.
+\paragraph{}
+About availability result we use the ping tool as mentioned before, and the result is not surprising as the domestic website stays fast, oversea website is in a reasonable speed and the blocked website is not pingable. At this point, all the data stays fine but obviously in dormitory area the average speed is slower than the other which is totally acceptable because of the user at that time are mostly in dormitory. The result is shown as table \ref{tab:c1}, and the unit is ms.
+\begin{table}[htbp]
+  \centering
+  \caption{Ping result}
+    \begin{tabular}{cccc}
+    Places    & \multicolumn{1}{l}{baidu.com} & \multicolumn{1}{l}{berkeley.edu} & youtube.com \\
+    TB1   & 16.768 & 178.52 & fail \\
+    TB2   & 50.52 & 183.2 & fail \\
+    Lib   & 10.5  & 181.23 & fail \\
+    Shuren & 15.99 & 174.83 & fail \\
+    lake Dor & 42.46 & 174.52 & fail \\
+    Litchi Dor  & 39.23 & 175.42 & fail \\
+    \end{tabular}%
+  \label{tab:c1}%
+\end{table}%
+\paragraph{}
+With that ping time, we can infer the response time as well. The data here is capture by the httpstat tool, and here is a sample result of teaching building 1. As we can see the now we select these three website performance differently, the domestic website stays fast, and the oversea website is slower than that. The result is shown as table \ref{tab:c2}, and the unit is ms.
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Response time}
+    \begin{tabular}{cccc}
+    Event    & baidu.com & berkeley.edu & youtube.com \\
+    DNS lookup & 7     & 7     & fail \\
+    TCP conn & 41    & 224   & fail \\
+    Server process & 42    & 224   & fail \\
+    Contant transfer & 0     & 446   & fail \\
+    Total & 90    & 901   & fail \\
+    \end{tabular}%
+  \label{tab:c2}%
+\end{table}%
+\paragraph{}
+Things becomes the same when it comes to the packet loss section, pack loss percentage is pretty low when it comes to domestic website, and also not high in oversea website. The result is shown as table \ref{tab:c3}. So we can assume all area's network perform well when it comes to simple website browsing part, which is satisfy our exception and close to our daily life using.
+\begin{table}[htbp]
+  \centering
+  \caption{Package loss}
+    \begin{tabular}{cccc}
+    Location    & \multicolumn{1}{l}{baidu.com} & \multicolumn{1}{l}{berkeley.edu} & \multicolumn{1}{l}{youtube.com} \\
+    TB1   & 0     & 3     & 4 \\
+    TB2   & 0     & 5     & 3 \\
+    Lib   & 0     & 7     & 4 \\
+    Shuren & 2     & 9     & 4 \\
+    lake Dor & 1     & 7     & 3 \\
+    Litchi Dor  & 1     & 7     & 2 \\
+    \end{tabular}%
+  \label{tab:c3}%
+\end{table}%
+\paragraph{}
+We use the netperf to test the throughput of each area, the TCP data was reasonable however the UDP data in every area stays the same amount around 1000. We think the reason to cause this problem should be the limitation of wireless protocol and because of that cause a very large difference between TCP and UDP. The result is shown as table \ref{tab:c4} , and the unit is $10^{6}$ bit/sec. 
+\begin{table}[htbp]
+  \centering
+  \caption{Throughput}
+    \begin{tabular}{ccc}
+   Location & TCP   & UDP \\
+    TB1   & 41530 & 1056 \\
+    TB2   & 42585 & 1058 \\
+    Lib   & 44396 & 1092 \\
+    Shuren & 43403 & 1095 \\
+    Lake Dor & 42431 & 1049 \\
+    Litchi Dor & 42440 & 1023 \\
+    \end{tabular}%
+  \label{tab:c4}%
+\end{table}%
+\paragraph{}
+The transaction is highly likely to the throughput, not only because of the same testing tool, but also the data is very likely to each other. Just like throughput, not a big difference between each other location, the data stays mainly the same in different area. And both throughput and transaction are at acceptable range of transmitting.The result is shown as table \ref{tab:c5} , and the unit is times per second. 
+\begin{table}[htbp]
+  \centering
+  \caption{Transaction}
+    \begin{tabular}{ccc}
+    Location  & TCP   & UDP \\
+    TB1   & 43507 & 39963 \\
+    TB2   & 43593 & 43272 \\
+    Lib   & 42990 & 43902 \\
+    Shuren & 44190 & 42575 \\
+    Lake Dor & 43110 & 40291 \\
+    Litchi Dor  & 43209 & 42909 \\
+    \end{tabular}%
+  \label{tab:c5}%
+\end{table}%
+\paragraph{}
+Bandwidth is pretty interesting comparing to other ones. In public area the the data is not far from each other, although UDP is still at a range of 1000 which is far from TCP. However in the dormitory area the data is not checkable due to unknown reason. Maybe there is different protocol in different router, this remains a mystery from other location. UDP jitter in public area is still lower than the dormitory area, except in Teaching building 2, which is significantly higher than all of the others. The result is shown as table \ref{tab:c6} , and the unit is Kilobits per second. 
+\begin{table}[htbp]
+  \centering
+  \caption{Bandwidth for TCP and UDP}
+    \begin{tabular}{cccc}
+    Location & TCP   & UDP   & UDP Jitter \\
+    TB1   & 67604 & 1000  & 0.177ms \\
+    TB2   & 56135 & 1004  & 4.350ms \\
+    Lib   & 57974 & 1002  & 0.193ms \\
+    Shuren & 100996 & 1008  & 0.735ms \\
+    Lake Dor & Fail  & 1001  & 1.105ms \\
+    Litchi Dor  & Fail  & 1001  & 1.235ms \\
+    \end{tabular}%
+  \label{tab:c6}%
+\end{table}%
+\paragraph{}
+Speed test may be the most straight forward statement among all the testing data. Speed is not that mysterious to others comparing the other factors, every one can feel the different very truly via accessing the Internet. At this point, the factor stays the same in different area and that give us a stable connection to the internet. The result is shown as table \ref{tab:c7} , and the unit is Mbps. 
+\begin{table}[htbp]
+  \centering
+  \caption{Speed}
+    \begin{tabular}{ccc}
+    Location  & Download & Upload \\
+    TB1   & 7.98  & 7.9 \\
+    TB2   & 7.64  & 7,6 \\
+    Lib   & 7.58  & 7.62 \\
+    Shuren & 8     & 8 \\
+    Lake Dor & 7.41  & 7.84 \\
+    Litchi Dor  & 7.3   & 7.24 \\
+    \end{tabular}%
+  \label{tab:c7}%
+\end{table}%
+\paragraph{}
+We did not forget the signal value which is a very impact to the user experience to the student when we accessing the Internet. A better signal means we will have a better speed connection to the Internet. It turns out that no matter the signal or the noice stays in a reasonable range and apparently will not affect our normal study or work. The result is shown as table \ref{tab:c8}.
+\begin{table}[htbp]
+  \centering
+  \caption{Signal strength}
+    \begin{tabular}{ccc}
+       Location   & Signal & Noise \\
+    TB1   & -44   & -93 \\
+    TB2   & -41   & -96 \\
+    Lib   & -59   & -93 \\
+    Shuren & -34   & -93 \\
+    Lake Dor & -44   & -92 \\
+    Litchi Dor  & -39   & -99 \\
+    \end{tabular}%
+  \label{tab:c8}%
+\end{table}%
+
+\subsection{Potential Problems}
+The main network security problems and threats facing the current university campus network are varible.	
+\subsubsection{Virus and attack}
+The incidence and spread of network viruses are very fast, which not only harms the security of user's computer, but also cause network congestion. \cite{cn3}
+\subsubsection{Abuse of network resources}
+The users of campus network abuse network resources, some even use free campus network resources to provide business downloads, occupy a large number of network bandwidth, and affect the use of campus network.
+\subsubsection{Junk mail}
+Junk mail is a great damage to campus network. It takes up network bandwidth, causes mail server congestion, and then reduces the efficiency of the entire network. At the same time, it is also an important way to spread network virus, attack and bad information. \cite{cn4}
+\subsection{Solutions}
+\subsubsection{Physical safety protection}
+By using the radiation protection screen, password, state detection, alarm confirmation, emergency recovery and other means to protect the network servers and other computer systems, network routing and other network equipment and network cable and other hardware entities from natural disasters, physical damage, electromagnetic leakage, operational errors and human disturbance and destruction of such attacks
+\subsubsection{Network safety protection}
+Building a more secure e-mail system. We need to analyze and compare many other aspects, choose an excellent e-mail security system to ensure the security of the campus network's mail system, so as to change the current situation of security risks such as spam, e-mail virus and e-mail leakage in the mail system.
+\section{Wired Network of Campus}
+\subsection{Description}
+In our campus, the wired network is used in classrooms mostly. Each classroom has one 8-interface switch. One of the interface is connected with the host in classroom and 7 interfaces left could be connected with external computers like our laptops. In the interface which connect to another host has its own IP address that given by The Information Center in Southern University of Science and Technology. The switches used in classrooms are simple so that we can just configure our laptop IP addressed and connect to wired network. Fig.1 and Fig.2 are the different IP addresses supported by the Information Center in our campus.
+\subsection{Data Analysis}
+\subsubsection{Wired speed test}
+Compare wired speed to wireless speed, we found that wired speed is a little bit faster than wireless speed in the same place.There test result is showed below, Figure \ref{p21} is the wired network speed. The reasons are in 3 aspects: transmission media, signal interference and signal attenuation. Wired network we usually use is through twisted-pair cable which means that it transmit by physical media. However wireless network transmission is easily be effected by obstacles, and wireless network is not as stable as wired network.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p21.png}
+\caption{Wired speed test}
+\label{p21}
+\end{figure}
+\subsubsection{Network delay test}
+We use ping command to visit www.baidu.com and find that the network delay between wired network and wireless network are obviously different. Figure \ref{p22} is wired network delay(wired network and wireless network are both the first time to ping www.baidu.com). We found that the wired network delay is shorter and more stable than the wireless network delay. The reason is that the wireless network need encryption and decryption operations while the wired network don't need that ,it just use hardware to do the same operations so the time cost less.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p22.png}
+\caption{Network delay test}
+\label{p22}
+\end{figure}
+\subsubsection{Throughput test}
+Throughput is the rate of production or the rate at which something can be processed. The throughput test method we used is Throughput Test software.
+Figure \ref{p23} is the testing configure we used. We used two hosts, one as server and the other one as client, connecting them by finding server's IP address. Then the software could help us sending packets and test the throughput.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p23.png}
+\caption{Throughput test}
+\label{p23}
+\end{figure}
+\paragraph{}
+We could see in result figures Figure \ref{p24}. There is upstream which is the amount of application-layer data delivered from the client to the server. Downstream is the amount of application-layer data delivered from the server to the client.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p24.png}
+\caption{application-layer data}
+\label{p24}
+\end{figure}
+\paragraph{}
+There is other parameters which could also be supported by Throughput Test software. For example loss and RTT in Figure \ref{p25}. The wired network still has some waves but it could come up to average value to show the performance.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.5]{p25.png}
+\caption{loss and RTT}
+\label{p25}
+\end{figure}
+\subsection{Potential Problems}
+Although wired network technology development tend to be mature, it still has some problems we need to improve.The main problem for wired network is security problem.\cite{cn5} Although wired network is more safety than wireless network, the security can not be ignored. Maybe we will suffer internal threat or some bad guys use social networks to obtain physical access to the enterprise network.
+\subsection{Solutions}
+\subsubsection{Using fire wall}
+Companies could use DDN line which connected to a ISP, consider to use Linux server to establish a firewall.  The firewall interface connected to the router and then connected with the ISP router. \cite{cn8} After that ,distribute a permanent IP address for its external interface.
+\subsubsection{802.1X for authentication}
+IEEE 802.1X authentication provides an additional security barrier for intranet that we can use to prevent guest, rogue, or unmanaged computers that cannot perform a successful authentication from connecting to intranet. \cite{cn6}
+\section{GFW inspection}
+\subsection{Types}
+\subsubsection{IP blockade}
+The firewall maintains a IP blacklist. Once the address of request packet is in the blacklist, it will be discarded directly. This will cause timeout to stop the target host from accessing to the target host.
+\paragraph{}
+For instance, https://www.youtube.com tracert, change at blue line, trace this IP, but baidu does not have this situation. This is showed in figure \ref{p41}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p41.png}
+\caption{Youtube Tracert}
+\label{p41}
+\end{figure}
+Solution including using VPS to build agents and using IPV6.
+\subsubsection{Content Filtering}
+Content filtering monitoring network content. The way of filtering is to integrate keyword matching function in switches or routers that control a lot of traffic, so as to monitor information in the network.\cite{cn9}
+\subsubsection{Domain Name Hijacking}
+By forging the DNS , the target website's domain name is resolved to the wrong address, so as to achieve the purpose that users cannot access the target website.Such as nslookup google, trace IP on Facebook; nslookup  facebook, trace IP on Twitter. This is showed in figure \ref{p42}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p42.png}
+\caption{Google to Facebook}
+\label{p42}
+\end{figure}
+\paragraph{} 
+Solution including use a number of third party DNS servers and build DNS server with VPS.
+\subsection{Solution}
+\subsubsection{HTTP proxy}
+The HTTP Proxy is a high performance content filter. It examines Web traffic to identify suspicious content, which can be a spyware, malformed content, or another type of attack. \cite{cn10} It can also protect your Web server from attacks from the external network using protocol anomaly detection rules to identify and deny suspicious packets.
+\subsubsection{VPN}
+Virtual private network (VPN) is a kind of communication method used in the private network of the group and other group. Usually for strong encryption. This is showed in figure \ref{p43}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.6]{p43.png}
+\caption{VPN network}
+\label{p43}
+\end{figure}
+\subsubsection{SOCKS proxy}
+SOCKS is a network transmission protocol, which is mainly used for the communication between the client and the external network server.
+When the client is to access the external server, it connect to the SOCKS proxy server. The proxy server allows the client's request to be sent to the external server.
+Socks is a clear text transmission,and will be easily blocked. So SSH Socks appeared(encrypting Socks).
+\paragraph{} 
+In the following figure, obvious that TCP are all from 45.77.223.240:9006, that means it is proxy server from US, binding no domain name, and can check shadowsocks's configuration for more evidence. This is showed in figure \ref{p44}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{p44.png}
+\caption{Packetcapture in shadowsocks}
+\label{p44}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.6]{p45.png}
+\caption{aes encryption}
+\label{p45}
+\end{figure}
+\subsubsection{Tor}
+Tor has a group of proxy servers, and message can pass through random proxy path to visit remote sites.\cite{cn7} Data is transmitted by multiple proxy servers, so the speed can not be guaranteed. Its main function is to hide the visitor information, not climb over the wall.
+\section{Personal Summary}
+\subsection{Yuxing Hu}
+My work in this project is to design the whole plan of the wireless network area, Including choosing the organization of measure aspect, learn to use all the testing tools and softwares, do the majority of testing and hold the discussion of problem arising then give the right solution to them via searching data and reading article on the website. I almost run through every corner of the campus and holding the machine to do all the testing, it was not that easy and fun, but thanks to god I've make it and present to the listener of our project. Also, I'm in charge of creating the ppt and organize the final report from teammates in to a latex version.
+\paragraph{} 
+To be honest, our time is pretty urgent to this project, and we do tried our best to do this, and overcome lots of troubles to finally gathering the data. It was a highlight moment for this course and a unforgotten journal to all of us. For myself, I really learned a lot not only to the usage of software but also the knowledge that behind it. And these were really awesome.
+\subsection{Xiaodong Mao}
+In this project ,my part is testing the wireless network in every area in the school by using different test tools and analysis some problems in the wireless network in our campus. In the process of completing the project, I have a deeper understanding of the concepts of the campus network like bandwidth ,throughput and delay, and the importance of network security.
+\subsection{Mengting Xu}
+My work in this project is to do the wired network survey and analysis. I support the whole testing data,analysis and report about wired network.For testing data, I choose two places: classrooms in the 1st teaching building and my dormitory. The software I use is TamoSoft Throughput Test.
+\paragraph{} 
+For survey part of our campus, I consult to teachers in the Information Center so it will be more authoritative.In this project,I had a deeper understanding about wired network and wireless network.Including how to test the performance and analysis the reasons of differences.
+\subsection{Jingyi Liu}
+In this project, my part is explorating the wall's principle and method of climbing over the wall.
+When I exploring the domain name hijacking situation ,I found that NSLOOKUP Google's IP is Facebook of the Irish, I once  suspected that it was wrong input, tried several times.It happened that another results of the NSLOOKUP also points to the "mysterious" Irish company, which can testify that result is right. This company is wrong IP address.
+\paragraph{} 
+I planned to use VPN for testing at begin, but openVPN was banned recently,So I can only use my roommate's shadowsocks for testing. I captured packets several times by Wireshark, also tried several web sites and read method for Socks5 data capture, Finally,I caught good results.
+Personally, this project make the knowledge i have learned in the past more vivid, and i also learned that how huge and strict the national firewall in network in China is, The wisdom of people is countless,since they create or discover the HTTP agent , VPN, shadowsocks and the onion router and even look for more ideas. GFW will also follow the development step by step.
+\newpage
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{unsrt}
+\bibliography{cn}
+\end{document}

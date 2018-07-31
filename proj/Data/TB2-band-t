@@ -1,0 +1,18 @@
+iperf -s -P 0 -i 1 -p 5001 -V -f k
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+[  4] local ::ffff:10.21.116.236 port 5001 connected with ::ffff:10.21.75.206 port 61660
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  6984 KBytes  57213 Kbits/sec
+[  4]  1.0- 2.0 sec  6728 KBytes  55116 Kbits/sec
+[  4]  2.0- 3.0 sec  6592 KBytes  54002 Kbits/sec
+[  4]  3.0- 4.0 sec  7414 KBytes  60733 Kbits/sec
+[  4]  4.0- 5.0 sec  6858 KBytes  56183 Kbits/sec
+[  4]  5.0- 6.0 sec  6600 KBytes  54067 Kbits/sec
+[  4]  6.0- 7.0 sec  7304 KBytes  59834 Kbits/sec
+[  4]  7.0- 8.0 sec  7080 KBytes  57999 Kbits/sec
+[  4]  8.0- 9.0 sec  6528 KBytes  53477 Kbits/sec
+[  4]  9.0-10.0 sec  6512 KBytes  53346 Kbits/sec
+[  4]  0.0-10.0 sec  68672 KBytes  56135 Kbits/sec
